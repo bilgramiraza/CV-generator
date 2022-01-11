@@ -43,7 +43,6 @@ export default class InputEducation extends Component {
             },
             allEducation:[...this.state.allEducation, education],
         });
-        console.log(this.state.allEducation);
     }
     submitInfo(e){
         e.preventDefault();

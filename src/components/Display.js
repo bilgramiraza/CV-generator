@@ -3,9 +3,6 @@ import React, { Component } from 'react'
 export default class Display extends Component {
     render() {
         const {personalInfo, education, experience}=this.props;
-        console.log(personalInfo);
-        console.log(education);
-        console.log(experience[0]);
 
         return (
             <div className='container'>

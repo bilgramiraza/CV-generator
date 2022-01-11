@@ -29,7 +29,6 @@ export default class InputSection extends Component {
     };
     assembleData(e){
         e.preventDefault();
-        console.log(this.state);
         const finalData = {
             personalInfo:this.state.personalInfo,
             education:this.state.education,

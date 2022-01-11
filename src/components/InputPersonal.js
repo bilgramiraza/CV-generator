@@ -24,7 +24,6 @@ export default class InputPersonal extends Component {
             location:this.state.location,
             phoneNo:this.state.phoneNo,
         };
-        console.log(personalInfo);
         this.props.getInfo(personalInfo);
         this.setState({
             firstName:'',

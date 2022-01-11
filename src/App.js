@@ -33,7 +33,12 @@ export default class App extends Component {
     };
   }
   getData=(data)=>{
-
+    console.log(data);
+    this.setState({
+      personalInfo:data.personalInfo,
+      education:data.education,
+      experience:data.experience,
+    });
   };
   render() {
     const {personalInfo, education, experience}=this.state;

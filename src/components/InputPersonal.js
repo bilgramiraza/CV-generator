@@ -80,6 +80,6 @@ export default class InputPersonal extends Component {
                     <button>Submit Personal Info</button>
                 </form>
             </div>
-        )
+        );
     }
 }

@@ -6,8 +6,8 @@ export default class InputEducation extends Component {
         this.state={
             current:{
                 instituteName:'',
-                location:'',
                 qual:'',
+                location:'',
                 from:'',
                 to:'',
             },
@@ -26,8 +26,8 @@ export default class InputEducation extends Component {
         e.preventDefault();
         const education={
             instituteName:this.state.current.instituteName,
-            location:this.state.current.location,
             qualification:this.state.current.qual,
+            location:this.state.current.location,
             duration:{
                 from:this.state.current.from,
                 to:this.state.current.to,
@@ -36,17 +36,17 @@ export default class InputEducation extends Component {
         this.setState({
             current:{
                 instituteName:'',
-                location:'',
                 qual:'',
+                location:'',
                 from:'',
                 to:'',
             },
             allEducation:[...this.state.allEducation, education],
         });
+        console.log(this.state.allEducation);
     }
     submitInfo(e){
         e.preventDefault();
-        console.log(this.props);
         this.props.getInfo(this.state.allEducation);
         this.setState({
             current:{

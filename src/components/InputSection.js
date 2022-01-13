@@ -13,6 +13,7 @@ export default class InputSection extends Component {
         };
     }
     getPersonalInfo=(data)=>{
+        console.log(data);
         this.setState({
             personalInfo:data,
         });

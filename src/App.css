@@ -1,0 +1,11 @@
+:root{
+    box-sizing: border-box;
+}
+header,footer{
+    height: 10vh;
+    width: 100vw;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    background-color: #cccccc;
+}

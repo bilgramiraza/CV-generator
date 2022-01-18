@@ -19,6 +19,8 @@ export default class InputForm extends Component {
                 <InputEducation handleChange={(e)=>this.handleChange('education',e)} 
                                 data={education.history[education.tracker]}
                                 handleTracker={this.props.handleTracker}
+                                addEducation={(e)=>this.props.addHistory('education')}
+                                removeEducation={(e)=>this.props.removeHistory('education')}
                 />
             </div>
         )

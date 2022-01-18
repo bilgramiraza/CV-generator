@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import InputGroup from './components/InputGroup';
 
-
-// CARASOL INPUT FORM USING A TRACKER FLAG TO SELECT THE CORRECT ITEM
-
 export default class InputEducation extends Component {
     incrementTracker=()=>{
         this.props.handleTracker("education", 1);
     }
     decrementTracker=()=>{
         this.props.handleTracker("education", -1);
+    }
+    handleSubmit=(e)=>{
+        e.preventDefault();
+        this.props.addEducation();
     }
     render() {
         return (
@@ -53,12 +54,11 @@ export default class InputEducation extends Component {
                                 handleChange={this.props.handleChange}
                     />
                 </div>
+                <button>Add Education</button>
+                <button type='button' onClick={this.props.removeEducation}>Remove Education</button>
             </form>
                 <button onClick={this.decrementTracker}>Previous</button>
                 <button onClick={this.incrementTracker}>Next</button>
-                <button>Add Education</button>
-                <button>Remove Education</button>
-                <button>Confirm Education Details</button>
             </div>
         );
     }

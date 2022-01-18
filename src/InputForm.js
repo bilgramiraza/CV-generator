@@ -11,10 +11,15 @@ export default class InputForm extends Component {
         return (
             <div className='container'>
                 <h3>Personal Info</h3>
-                <InputPersonal handleChange={(e)=>this.handleChange('personal',e)} data={personal}/>
+                <InputPersonal handleChange={(e)=>this.handleChange('personal',e)} 
+                               data={personal}
+                />
                 <hr />
                 <h3>Education Info</h3>
-                <InputEducation handleChange={(e)=>this.handleChange('education',e)} data={education}/>
+                <InputEducation handleChange={(e)=>this.handleChange('education',e)} 
+                                data={education.history[education.tracker]}
+                                handleTracker={this.props.handleTracker}
+                />
             </div>
         )
     }

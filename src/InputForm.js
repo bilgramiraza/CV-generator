@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import InputPersonal from './InputPersonal';
 import InputEducation from './InputEducation';
+import InputExperience from './InputExperience';
 
 export default class InputForm extends Component {
     handleChange(category,e){
@@ -21,6 +22,14 @@ export default class InputForm extends Component {
                                 handleTracker={this.props.handleTracker}
                                 addEducation={(e)=>this.props.addHistory('education')}
                                 removeEducation={(e)=>this.props.removeHistory('education')}
+                />                
+                <hr />
+                <h3>Experience Info</h3>
+                <InputExperience handleChange={(e)=>this.handleChange('experience',e)} 
+                                 data={experience.history[experience.tracker]}
+                                 handleTracker={this.props.handleTracker}
+                                 addExperience={(e)=>this.props.addHistory('experience')}
+                                 removeExperience={(e)=>this.props.removeHistory('experience')}
                 />
             </div>
         )

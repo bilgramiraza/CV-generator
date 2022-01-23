@@ -23,7 +23,16 @@ export default class Main extends Component {
                     to:'',
                 }],
             },
-            experience:[],
+            experience:{
+                tracker:0,
+                history:[{
+                    companyName:'',
+                    role:'',
+                    location:'',
+                    from:'',
+                    to:'',
+                }],
+            },
         };
     }
     getData(category,name,value){
@@ -69,24 +78,43 @@ export default class Main extends Component {
         }));
     }
     addHistory(category){
-        this.setState((prevState)=>({
-            ...prevState,
-            [category]:{
-                tracker:prevState[category].tracker+1,
-                history:[...prevState[category].history, {
-                    instituteName:'',
-                    qual:'',
-                    location:'',
-                    from:'',
-                    to:'',
-                }],
+        this.setState((prevState)=>{
+            let historyData;
+            switch (category) {
+                case 'education':
+                    historyData={
+                        instituteName:'',
+                        qual:'',
+                        location:'',
+                        from:'',
+                        to:'',
+                    };
+                    break;
+            
+                default:
+                    historyData={
+                        companyName:'',
+                        role:'',
+                        location:'',
+                        from:'',
+                        to:'',
+                    };
+                    break;
             }
-        }));
+            return {
+                ...prevState,
+                [category]:{
+                    tracker:prevState[category].tracker+1,
+                    history:[...prevState[category].history,
+                            historyData],
+                }
+            };
+        });
     }
     removeHistory(category){
         const target = this.state[category].history;
 
-        if(!target.length)  return
+        if(target.length <= 1)  return;
 
         let newTracker=this.state[category].tracker;
 

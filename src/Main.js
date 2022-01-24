@@ -6,6 +6,7 @@ export default class Main extends Component {
     constructor(){
         super();
         this.state = {
+            display:false,
             personal:{
                 firstName:'',
                 lastName:'',
@@ -130,6 +131,11 @@ export default class Main extends Component {
             }
         }));
     }
+    toggleDisplay = () =>{
+        this.setState(prevState=>({
+            display:!prevState.display,
+        }));
+    }
     render() {
         return (
             <main>
@@ -138,7 +144,11 @@ export default class Main extends Component {
                            addHistory={this.addHistory.bind(this)}
                            removeHistory={this.removeHistory.bind(this)}
                            data={this.state}/>
-                <Display data={this.state}/>
+                <button onClick={this.toggleDisplay}>Generate CV</button>
+                {
+                    this.state.display &&
+                    <Display data={this.state}/>
+                }
             </main>
         )
     }

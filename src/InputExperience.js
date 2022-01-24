@@ -17,6 +17,7 @@ export default class InputExperience extends Component {
         return (
             <div>   
                 <form onSubmit={this.handleSubmit}>
+                <fieldset disabled={this.props.disable?'disabled':''}>
                 <div className="input-group">
                     <InputGroup inputGroupLabel='Company Name'
                                 inputGroupType='text'
@@ -57,9 +58,14 @@ export default class InputExperience extends Component {
                 </div>
                 <button>Add Experience</button>
                 <button type='button' onClick={this.props.removeExperience}>Remove Experience</button>
+                </fieldset>
             </form>
-                <button onClick={this.decrementTracker}>Previous</button>
-                <button onClick={this.incrementTracker}>Next</button>
+                <button onClick={this.decrementTracker} disabled={this.props.disable?'disabled':''}>
+                    Previous
+                </button>
+                <button onClick={this.incrementTracker} disabled={this.props.disable?'disabled':''}>
+                    Next
+                </button>
             </div>
         );
     }

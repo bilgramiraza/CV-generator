@@ -138,13 +138,17 @@ export default class Main extends Component {
     }
     render() {
         return (
-            <main>
+            <main className='container'>
                 <InputForm getData={this.getData.bind(this)} 
                            handleTracker={this.handleTracker.bind(this)}
                            addHistory={this.addHistory.bind(this)}
                            removeHistory={this.removeHistory.bind(this)}
                            data={this.state}/>
-                <button onClick={this.toggleDisplay}>Generate CV</button>
+                <div className='text-center'>
+                    <button onClick={this.toggleDisplay}>
+                        {this.state.display?'Edit Details':'Generate CV'}
+                    </button>
+                </div>
                 {
                     this.state.display &&
                     <Display data={this.state}/>

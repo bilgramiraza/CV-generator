@@ -12,8 +12,9 @@ export default class InputForm extends Component {
         return (
             <div className='container'>
                 <h3>Personal Info</h3>
-                <InputPersonal handleChange={(e)=>this.handleChange('personal',e)} 
+                <InputPersonal handleChange={(e)=>this.handleChange('personal',e)}
                                data={personal}
+                               disable={this.props.data.display}
                 />
                 <hr />
                 <h3>Education Info</h3>
@@ -22,6 +23,7 @@ export default class InputForm extends Component {
                                 handleTracker={this.props.handleTracker}
                                 addEducation={(e)=>this.props.addHistory('education')}
                                 removeEducation={(e)=>this.props.removeHistory('education')}
+                                disable={this.props.data.display}
                 />                
                 <hr />
                 <h3>Experience Info</h3>
@@ -30,6 +32,7 @@ export default class InputForm extends Component {
                                  handleTracker={this.props.handleTracker}
                                  addExperience={(e)=>this.props.addHistory('experience')}
                                  removeExperience={(e)=>this.props.removeHistory('experience')}
+                                 disable={this.props.data.display}
                 />
             </div>
         )

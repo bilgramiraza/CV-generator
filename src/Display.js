@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 export default class Display extends Component {
     render() {
         const {personal:personalInfo, education:educationInfo, experience:experienceInfo}=this.props.data;
-        console.log(educationInfo);
         const educationDivs=educationInfo.history.map((item,index)=>{
             return(            
             <div className='col' key={index}>

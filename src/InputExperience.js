@@ -3,10 +3,14 @@ import InputGroup from './components/InputGroup';
 
 export default class InputExperience extends Component {
     incrementTracker=()=>{
-        this.props.handleTracker("experience", 1);
+        const changeValue = this.props.currentItemIndex+1;
+        if(changeValue<this.props.totalItems)
+            this.props.handleTracker("experience", changeValue);
     }
     decrementTracker=()=>{
-        this.props.handleTracker("experience", -1);
+        const changeValue = this.props.currentItemIndex-1;
+        if(changeValue>=0)
+            this.props.handleTracker("experience", changeValue);
     }
     handleSubmit=(e)=>{
         e.preventDefault();

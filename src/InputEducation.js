@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
+import InputCarouselSelector from './components/InputCarouselSelector';
 import InputGroup from './components/InputGroup';
 
 export default class InputEducation extends Component {
     incrementTracker=()=>{
-        this.props.handleTracker("education", 1);
+        const changeValue = this.props.currentItemIndex+1;
+        if(changeValue<this.props.totalItems)
+            this.props.handleTracker("education", changeValue);
     }
     decrementTracker=()=>{
-        this.props.handleTracker("education", -1);
+        const changeValue = this.props.currentItemIndex-1;
+        if(changeValue>=0)
+            this.props.handleTracker("education", changeValue);
     }
     handleSubmit=(e)=>{
         e.preventDefault();
@@ -62,6 +67,10 @@ export default class InputEducation extends Component {
                 <button onClick={this.decrementTracker} disabled={this.props.disable?'disabled':''}>
                     Previous
                 </button>
+                <InputCarouselSelector index={this.props.currentItemIndex}
+                                       length={this.props.totalItems}
+                                       typeOf='education'
+                />
                 <button onClick={this.incrementTracker} disabled={this.props.disable?'disabled':''}>
                     Next
                 </button>

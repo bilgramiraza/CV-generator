@@ -64,17 +64,12 @@ export default class Main extends Component {
                 break;
         }
     }
-    handleTracker(category, step){
-        const categoryLength=this.state[category].history.length;
-
-        if((this.state[category].tracker+step) >= categoryLength || 
-           (this.state[category].tracker+step) < 0) return;
-
+    handleTracker(category, value){
         this.setState((prevState)=>({
             ...prevState,
             [category]:{
                 ...prevState[category],
-                tracker:prevState[category].tracker+step,
+                tracker:value,
             }
         }));
     }

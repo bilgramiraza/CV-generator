@@ -21,8 +21,10 @@ export default class InputForm extends Component {
                 <InputEducation handleChange={(e)=>this.handleChange('education',e)} 
                                 data={education.history[education.tracker]}
                                 handleTracker={this.props.handleTracker}
-                                addEducation={(e)=>this.props.addHistory('education')}
-                                removeEducation={(e)=>this.props.removeHistory('education')}
+                                currentItemIndex={education.tracker}
+                                totalItems={education.history.length}
+                                addEducation={()=>this.props.addHistory('education')}
+                                removeEducation={()=>this.props.removeHistory('education')}
                                 disable={this.props.data.display}
                 />                
                 <hr />
@@ -30,8 +32,10 @@ export default class InputForm extends Component {
                 <InputExperience handleChange={(e)=>this.handleChange('experience',e)} 
                                  data={experience.history[experience.tracker]}
                                  handleTracker={this.props.handleTracker}
-                                 addExperience={(e)=>this.props.addHistory('experience')}
-                                 removeExperience={(e)=>this.props.removeHistory('experience')}
+                                 currentItemIndex={experience.tracker}
+                                 totalItems={experience.history.length}
+                                 addExperience={()=>this.props.addHistory('experience')}
+                                 removeExperience={()=>this.props.removeHistory('experience')}
                                  disable={this.props.data.display}
                 />
             </div>

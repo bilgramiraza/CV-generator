@@ -3,16 +3,6 @@ import InputCarouselSelector from './components/InputCarouselSelector';
 import InputGroup from './components/InputGroup';
 
 export default class InputEducation extends Component {
-    incrementTracker=()=>{
-        const changeValue = this.props.currentItemIndex+1;
-        if(changeValue<this.props.totalItems)
-            this.props.handleTracker("education", changeValue);
-    }
-    decrementTracker=()=>{
-        const changeValue = this.props.currentItemIndex-1;
-        if(changeValue>=0)
-            this.props.handleTracker("education", changeValue);
-    }
     handleSubmit=(e)=>{
         e.preventDefault();
         this.props.addEducation();
@@ -64,16 +54,12 @@ export default class InputEducation extends Component {
                         <button type='button' onClick={this.props.removeEducation}>Remove Education</button>
                     </fieldset>
                 </form>
-                <button onClick={this.decrementTracker} disabled={this.props.disable?'disabled':''}>
-                    Previous
-                </button>
-                <InputCarouselSelector index={this.props.currentItemIndex}
-                                       length={this.props.totalItems}
-                                       typeOf='education'
+                <InputCarouselSelector currentIndex={this.props.currentItemIndex}
+                                       totalItems={this.props.totalItems}
+                                       category='education'
+                                       handleTracker={this.props.handleTracker}
+                                       disable={this.props.disable}
                 />
-                <button onClick={this.incrementTracker} disabled={this.props.disable?'disabled':''}>
-                    Next
-                </button>
             </div>
         );
     }

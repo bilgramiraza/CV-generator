@@ -112,16 +112,15 @@ export default class Main extends Component {
 
         if(target.length <= 1)  return;
 
-        let newTracker=this.state[category].tracker;
+        let newTracker=this.state[category].tracker-1;
 
         if(newTracker<0)    newTracker=0;
-        console.log(target[newTracker]);
         target.splice(newTracker,1);
         
         this.setState(prevState=>({
             ...prevState,
             [category]:{
-                tracker:newTracker-1,
+                tracker:newTracker,
                 history:[...target],
             }
         }));

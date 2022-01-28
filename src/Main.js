@@ -74,7 +74,50 @@ export default class Main extends Component {
         }));
     }
     addHistory(category){
-        this.setState((prevState)=>{
+        const target = this.state[category].history;
+        if(target.length>20)  return;
+        let historyData;
+        switch (category) {
+            case 'education':
+                historyData={
+                    instituteName:'',
+                    qual:'',
+                    location:'',
+                    from:'',
+                    to:'',
+                };
+                break;
+        
+            default:
+                historyData={
+                    companyName:'',
+                    role:'',
+                    location:'',
+                    from:'',
+                    to:'',
+                };
+                break;
+        }
+        target.splice(this.state[category].tracker+1,0,historyData);
+
+        this.setState((prevState)=>({
+            ...prevState,
+            [category]:{
+                tracker:prevState[category].tracker+1,
+                history:[...target],
+            }
+        }));
+    }
+    removeHistory(category){
+        const target = this.state[category].history;
+
+        let newTracker=this.state[category].tracker;
+
+        target.splice(newTracker,1);
+        
+        if(newTracker>=target.length)    newTracker=target.length-1;
+        
+        if(!target.length){
             let historyData;
             switch (category) {
                 case 'education':
@@ -97,33 +140,23 @@ export default class Main extends Component {
                     };
                     break;
             }
-            return {
+            this.setState(prevState=>({
                 ...prevState,
                 [category]:{
-                    tracker:prevState[category].tracker+1,
-                    history:[...prevState[category].history,
-                            historyData],
+                    tracker:0,
+                    history:[historyData],
                 }
-            };
-        });
-    }
-    removeHistory(category){
-        const target = this.state[category].history;
-
-        if(target.length <= 1)  return;
-
-        let newTracker=this.state[category].tracker-1;
-
-        if(newTracker<0)    newTracker=0;
-        target.splice(newTracker,1);
-        
-        this.setState(prevState=>({
-            ...prevState,
-            [category]:{
-                tracker:newTracker,
-                history:[...target],
-            }
-        }));
+            }));
+        }
+        else{
+            this.setState(prevState=>({
+                ...prevState,
+                [category]:{
+                    tracker:newTracker,
+                    history:[...target],
+                }
+            }));
+        }
     }
     toggleDisplay = () =>{
         this.setState(prevState=>({

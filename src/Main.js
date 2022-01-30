@@ -159,9 +159,19 @@ export default class Main extends Component {
         }
     }
     toggleDisplay = () =>{
+        if(!this.dataPresent()){
+            return;
+        }
         this.setState(prevState=>({
             display:!prevState.display,
         }));
+    }
+    dataPresent=()=>{
+        if(this.state.personal.firstName!=='' && 
+           this.state.education.history[0].instituteName!=='')
+           return true;
+        else
+            return false;
     }
     render() {
         return (

@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import InputGroup from './components/InputGroup'
 
 export default class InputPersonal extends Component {
-    handleSubmit(e){
+    handleSubmit=(e)=>{
         e.preventDefault();
+        this.props.updateStatus(true);
     }
     render() {
         return (
@@ -15,12 +16,14 @@ export default class InputPersonal extends Component {
                                     inputGroupName='firstName'
                                     inputGroupValue={this.props.data.firstName}
                                     handleChange={this.props.handleChange}
+                                    required={true}
                         />
                         <InputGroup inputGroupLabel='Last Name'
                                     inputGroupType='text'
                                     inputGroupName='lastName'
                                     inputGroupValue={this.props.data.lastName}
                                     handleChange={this.props.handleChange}
+                                    required={true}
                         />
                     </div>    
                     <div className="input-group">
@@ -29,6 +32,7 @@ export default class InputPersonal extends Component {
                                     inputGroupName='email'
                                     inputGroupValue={this.props.data.email}
                                     handleChange={this.props.handleChange}
+                                    required={true}
                         />
                     </div>
                     <div className="input-group">
@@ -37,6 +41,7 @@ export default class InputPersonal extends Component {
                                     inputGroupName='location'
                                     inputGroupValue={this.props.data.location}
                                     handleChange={this.props.handleChange}
+                                    required={true}
                         />
                     </div>
                     <div className="input-group">
@@ -45,9 +50,11 @@ export default class InputPersonal extends Component {
                                     inputGroupName='mobileNo'
                                     inputGroupValue={this.props.data.mobileNo}
                                     handleChange={this.props.handleChange}
+                                    required={true}
                         />
                     </div>
                 </fieldset>
+                <button>Submit Personal</button>
             </form>
         )
     }

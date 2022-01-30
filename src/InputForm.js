@@ -14,6 +14,7 @@ export default class InputForm extends Component {
                 <h3>Personal Info</h3>
                 <InputPersonal handleChange={(e)=>this.handleChange('personal',e)}
                                data={personal}
+                               updateStatus={(status)=>this.props.updateStatus('personal',status)}
                                disable={this.props.data.display}
                 />
                 <hr />
@@ -25,6 +26,7 @@ export default class InputForm extends Component {
                                 totalItems={education.history.length}
                                 addEducation={()=>this.props.addHistory('education')}
                                 removeEducation={()=>this.props.removeHistory('education')}
+                                updateStatus={(status)=>this.props.updateStatus('education',status)}
                                 disable={this.props.data.display}
                 />                
                 <hr />
@@ -36,6 +38,7 @@ export default class InputForm extends Component {
                                  totalItems={experience.history.length}
                                  addExperience={()=>this.props.addHistory('experience')}
                                  removeExperience={()=>this.props.removeHistory('experience')}
+                                 updateStatus={(status)=>this.props.updateStatus('experience',status)}
                                  disable={this.props.data.display}
                 />
             </div>

@@ -6,6 +6,7 @@ export default class InputExperience extends Component {
     handleSubmit=(e)=>{
         e.preventDefault();
         this.props.addExperience();
+        this.props.updateStatus(true);
     }
     render() {
         return (
@@ -18,7 +19,8 @@ export default class InputExperience extends Component {
                                         inputGroupName='companyName'
                                         inputGroupValue={this.props.data.companyName}
                                         handleChange={this.props.handleChange}
-                            />
+                                        required={true}
+                                        />
                         </div>
                         <div className="input-group">
                             <InputGroup inputGroupLabel='Title'
@@ -26,7 +28,8 @@ export default class InputExperience extends Component {
                                         inputGroupName='role'
                                         inputGroupValue={this.props.data.role}
                                         handleChange={this.props.handleChange}
-                            />
+                                        required={true}
+                                        />
                         </div>
                         <div className="input-group">
                             <InputGroup inputGroupLabel='Address'
@@ -34,7 +37,8 @@ export default class InputExperience extends Component {
                                         inputGroupName='location'
                                         inputGroupValue={this.props.data.location}
                                         handleChange={this.props.handleChange}
-                            />
+                                        required={true}
+                                        />
                         </div>
                         <div className="input-group">
                             <InputGroup inputGroupLabel='From'
@@ -42,7 +46,8 @@ export default class InputExperience extends Component {
                                         inputGroupName='from'
                                         inputGroupValue={this.props.data.from}
                                         handleChange={this.props.handleChange}
-                            />
+                                        required={true}
+                                        />
                             <InputGroup inputGroupLabel='To'
                                         inputGroupType='date'
                                         inputGroupName='to'

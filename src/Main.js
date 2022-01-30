@@ -34,6 +34,11 @@ export default class Main extends Component {
                     to:'',
                 }],
             },
+            formStatus:{
+                personal:false,
+                education:false,
+                experience:false,
+            },
         };
     }
     getData(category,name,value){
@@ -167,11 +172,17 @@ export default class Main extends Component {
         }));
     }
     dataPresent=()=>{
-        if(this.state.personal.firstName!=='' && 
-           this.state.education.history[0].instituteName!=='')
+        if(this.state.formStatus.personal&&this.state.formStatus.education)
            return true;
         else
             return false;
+    }
+    updateStatus=(category, status)=>{
+        this.setState(prevState=>(
+                        {formStatus:{
+                            ...prevState.formStatus,
+                            [category]:status}}
+        ));
     }
     render() {
         return (
@@ -183,7 +194,8 @@ export default class Main extends Component {
                                 handleTracker={this.handleTracker.bind(this)}
                                 addHistory={this.addHistory.bind(this)}
                                 removeHistory={this.removeHistory.bind(this)}
-                                data={this.state}/>
+                                data={this.state}
+                                updateStatus={this.updateStatus.bind(this)}/>
                 }
                 <div className='text-center'>
                     <button onClick={this.toggleDisplay}>

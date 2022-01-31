@@ -198,10 +198,12 @@ export default class Main extends Component {
                                 updateStatus={this.updateStatus.bind(this)}/>
                 }
                 <div className='text-center'>
-                    <button onClick={this.toggleDisplay}>
+                    <button onClick={this.toggleDisplay} 
+                            disabled={this.dataPresent()?'':'disable'}>
                         {this.state.display?'Edit Details':'Generate CV'}
                     </button>
                 </div>
+
             </main>
         )
     }

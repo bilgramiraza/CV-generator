@@ -4,40 +4,66 @@ export default class Display extends Component {
     render() {
         const {personal:personalInfo, education:educationInfo, experience:experienceInfo}=this.props.data;
         const educationDivs=educationInfo.history.map((item,index)=>(            
-            <div className='col' key={index}>
-                <p>Institute Name: {`${item.instituteName}`}</p>
-                <p>Qualification: {`${item.qual}`}</p>
-                <p>Location: {`${item.location}`}</p>
-                <p>From: {`${item.from}`}</p>
-                <p>To: {`${item.to}`}</p>
+            <div key={index}>
+                <div className='d-flex flex-row justify-content-between'>
+                    <div>
+                        <h4>{`${item.location}`}</h4>
+                    </div>
+                    <div>
+                        <h2><b>{`${item.instituteName}`}</b></h2>
+                    </div>
+                    <div>
+                        <h4>{`${item.from}`} - {`${item.to}`}</h4>
+                    </div>
+                </div>
+                <div>
+                    <p>{`${item.qual}`}</p>
+                </div>
             </div>
             ));
         const experienceDivs=experienceInfo.history.map((item, index)=>(            
-            <div className='col' key={index}>
-                <p>Company Name: {`${item.companyName}`}</p>
-                <p>Role: {`${item.role}`}</p>
-                <p>Location: {`${item.location}`}</p>
-                <p>From: {`${item.from}`}</p>
-                <p>To: {`${item.to}`}</p>
-            </div>
-            ));
-        return (
-            <div className='container'>
-                <div>
-                    <h3>Personal Info</h3>
+            <div key={index}>
+                <div className='d-flex flex-row justify-content-between'>
                     <div>
-                        <p>Full Name:{`${personalInfo.firstName} ${personalInfo.lastName}`}</p>
-                        <p>Email: {`${personalInfo.email}`}</p>
-                        <p>Location: {`${personalInfo.location}`}</p>
-                        <p>Mobile No:{`${personalInfo.mobileNo}`}</p>
+                        <h2><b>{`${item.companyName}`}</b></h2>
+                    </div>
+                    <div>
+                        <h3>{`${item.from}`} - {`${item.to}`}</h3>
                     </div>
                 </div>
-                <div className='row'>
-                    <h3>Education</h3>
+                <div>
+                    <h3>{`${item.location}`}</h3>
+                </div>
+                <div>
+                    <h4>{`${item.role}`}</h4>
+                </div>
+            </div>
+            ));
+        console.log(this.props);
+        return (
+            <div className='container border border-3 m-2'>
+                <div className='d-flex flex-row justify-content-between'>
+                    <div className='d-flex flex-column'>
+                        <h4>{`${personalInfo.location}`}</h4>
+                        <h4>{`${personalInfo.mobileNo}`}</h4>
+                    </div>
+                    <div className='d-flex flex-column'>
+                        <h2><b>{`${personalInfo.firstName}`}</b></h2>
+                        <h2><b>{`${personalInfo.lastName}`}</b></h2>
+                    </div>    
+                    <div className='d-flex flex-column'>
+                        <h4>{`${personalInfo.email}`}</h4>
+                        <h4>{`${null}`}</h4>
+                    </div>
+                </div>
+                <h2>Education</h2>
+                <hr />
+                <div className='d-flex flex-column justify-content-center'>
                     {educationDivs}
                 </div>
-                <div className='row'>
-                    <h3>Experience</h3>
+                <h2>Experience</h2>
+                <hr />
+                <div>
                     {experienceDivs}
                 </div>
             </div>

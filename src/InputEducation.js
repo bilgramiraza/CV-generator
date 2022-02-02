@@ -4,14 +4,16 @@ import InputGroup from './components/InputGroup';
 
 export default class InputEducation extends Component {
     handleSubmit=(e)=>{
+        this.props.updateStatus(true);
+    }
+    handleAdd=(e)=>{
         e.preventDefault();
         this.props.addEducation();
-        this.props.updateStatus(true);
     }
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleAdd}>
                     <fieldset disabled={this.props.disable?'disabled':''}>
                         <div className="input-group">
                             <InputGroup inputGroupLabel='Institute Name'
@@ -66,6 +68,7 @@ export default class InputEducation extends Component {
                                        handleTracker={this.props.handleTracker}
                                        disable={this.props.disable}
                 />
+                <button type='button' onClick={this.handleSubmit}>Submit Education</button>
             </div>
         );
     }

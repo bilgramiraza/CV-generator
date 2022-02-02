@@ -4,14 +4,16 @@ import InputGroup from './components/InputGroup';
 
 export default class InputExperience extends Component {
     handleSubmit=(e)=>{
+        this.props.updateStatus(true);
+    }
+    handleAdd=(e)=>{
         e.preventDefault();
         this.props.addExperience();
-        this.props.updateStatus(true);
     }
     render() {
         return (
             <div>   
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleAdd}>
                     <fieldset disabled={this.props.disable?'disabled':''}>
                         <div className="input-group">
                             <InputGroup inputGroupLabel='Company Name'
@@ -53,7 +55,8 @@ export default class InputExperience extends Component {
                                         inputGroupName='to'
                                         inputGroupValue={this.props.data.to}
                                         handleChange={this.props.handleChange}
-                            />
+                                        required={true}
+                                        />
                         </div>
                         <button>Add Experience</button>
                         <button type='button' onClick={this.props.removeExperience}>Remove Experience</button>
@@ -65,6 +68,7 @@ export default class InputExperience extends Component {
                                        handleTracker={this.props.handleTracker}
                                        disable={this.props.disable}
                 />
+                <button type='button' onClick={this.handleSubmit}>Submit Experience</button>
             </div>
         );
     }

@@ -48,9 +48,19 @@ export default class InputPersonal extends Component {
                         <InputGroup inputGroupLabel='Mobile Number'
                                     inputGroupType='tel'
                                     inputGroupName='mobileNo'
+                                    pattern='[0-9]+'
                                     inputGroupValue={this.props.data.mobileNo}
                                     handleChange={this.props.handleChange}
                                     required={true}
+                        />
+                    </div>
+                    <div className="input-group">
+                        <InputGroup inputGroupLabel='Site'
+                                    inputGroupType='text'
+                                    inputGroupName='site'
+                                    inputGroupValue={this.props.data.site}
+                                    handleChange={this.props.handleChange}
+                                    required={false}
                         />
                     </div>
                 </fieldset>

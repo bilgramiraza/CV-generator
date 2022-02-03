@@ -32,10 +32,12 @@ export default class Display extends Component {
                     </div>
                 </div>
                 <div>
-                    <h3>{`${item.location}`}</h3>
+                    <h3>{`${item.role}`}</h3>
                 </div>
                 <div>
-                    <h4>{`${item.role}`}</h4>
+                    <h5 style={{whiteSpace:'pre-wrap'}}>
+                        {`${item.details}`}
+                    </h5>
                 </div>
             </div>
             ));
@@ -53,7 +55,7 @@ export default class Display extends Component {
                     </div>    
                     <div className='d-flex flex-column'>
                         <h4>{`${personalInfo.email}`}</h4>
-                        <h4>{`${null}`}</h4>
+                        <h4>{`${personalInfo.site}`}</h4>
                     </div>
                 </div>
                 <h2>Education</h2>

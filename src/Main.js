@@ -13,6 +13,7 @@ export default class Main extends Component {
                 email:'',
                 location:'',
                 mobileNo:'',
+                site:'',
             },
             education:{
                 tracker:0,
@@ -29,7 +30,7 @@ export default class Main extends Component {
                 history:[{
                     companyName:'',
                     role:'',
-                    location:'',
+                    details:'',
                     from:'',
                     to:'',
                 }],
@@ -97,7 +98,7 @@ export default class Main extends Component {
                 historyData={
                     companyName:'',
                     role:'',
-                    location:'',
+                    details:'',
                     from:'',
                     to:'',
                 };
@@ -139,7 +140,7 @@ export default class Main extends Component {
                     historyData={
                         companyName:'',
                         role:'',
-                        location:'',
+                        details:'',
                         from:'',
                         to:'',
                     };
@@ -175,7 +176,7 @@ export default class Main extends Component {
         if(this.state.formStatus.personal&&this.state.formStatus.education)
            return true;
         else
-            return false;
+           return false;
     }
     updateStatus=(category, status)=>{
         this.setState(prevState=>(
@@ -208,5 +209,3 @@ export default class Main extends Component {
         )
     }
 }
-
-

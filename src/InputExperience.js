@@ -34,10 +34,10 @@ export default class InputExperience extends Component {
                                         />
                         </div>
                         <div className="input-group">
-                            <InputGroup inputGroupLabel='Address'
-                                        inputGroupType='text'
-                                        inputGroupName='location'
-                                        inputGroupValue={this.props.data.location}
+                            <InputGroup inputGroupLabel='Details'
+                                        inputGroupType='textarea'
+                                        inputGroupName='details'
+                                        inputGroupValue={this.props.data.details}
                                         handleChange={this.props.handleChange}
                                         required={true}
                                         />
@@ -46,6 +46,7 @@ export default class InputExperience extends Component {
                             <InputGroup inputGroupLabel='From'
                                         inputGroupType='date'
                                         inputGroupName='from'
+                                        pattern='\d{1,2}/\d{1,2}/\d{4}'
                                         inputGroupValue={this.props.data.from}
                                         handleChange={this.props.handleChange}
                                         required={true}
@@ -53,6 +54,7 @@ export default class InputExperience extends Component {
                             <InputGroup inputGroupLabel='To'
                                         inputGroupType='date'
                                         inputGroupName='to'
+                                        pattern='\d{1,2}/\d{1,2}/\d{4}'
                                         inputGroupValue={this.props.data.to}
                                         handleChange={this.props.handleChange}
                                         required={true}

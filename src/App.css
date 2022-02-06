@@ -1,11 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;700&display=swap');
+
 :root{
     box-sizing: border-box;
 }
 header,footer{
     height: 10vh;
-    width: 100vw;
+    width: 99vw;
     padding: 1rem;
     display: flex;
     flex-direction: row;
     background-color: #cccccc;
+}
+header{
+    font-family: 'Lobster', cursive;
+    font-size: large;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+footer>a>svg{
+    margin: auto;
+    transform: scale(3);
 }

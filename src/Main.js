@@ -205,7 +205,6 @@ export default class Main extends Component {
                         {this.state.display?'Edit Details':'Generate CV'}
                     </button>
                 </div>
-
             </main>
         )
     }

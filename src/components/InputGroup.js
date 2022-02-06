@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class InputGroup extends Component {
     render() {
-        const {inputGroupLabel, inputGroupType, inputGroupName, 
+        const {inputGroupLabel, inputGroupType, inputGroupName, inputGroupPlaceHolder,
                inputGroupValue, pattern, handleChange, required} =this.props;
         switch (inputGroupType) {
             case 'textarea':
@@ -13,6 +13,7 @@ export default class InputGroup extends Component {
                             className='form-control'
                             aria-label={inputGroupLabel}
                             name={inputGroupName}
+                            placeholder={inputGroupPlaceHolder?inputGroupPlaceHolder:null}
                             value={inputGroupValue}
                             pattern={pattern?pattern:null}
                             onChange={handleChange}
@@ -28,6 +29,7 @@ export default class InputGroup extends Component {
                             className='form-control'
                             aria-label={inputGroupLabel}
                             name={inputGroupName}
+                            placeholder={inputGroupPlaceHolder?inputGroupPlaceHolder:null}
                             value={inputGroupValue}
                             pattern={pattern?pattern:null}
                             onChange={handleChange}

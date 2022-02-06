@@ -26,6 +26,7 @@ export default class InputEducation extends Component {
                             <InputGroup inputGroupLabel='Institute Name'
                                         inputGroupType='text'
                                         inputGroupName='instituteName'
+                                        inputGroupPlaceHolder='Example University'
                                         inputGroupValue={this.props.data.instituteName}
                                         handleChange={this.props.handleChange}
                                         required={true}
@@ -35,6 +36,7 @@ export default class InputEducation extends Component {
                             <InputGroup inputGroupLabel='Qualification'
                                         inputGroupType='text'
                                         inputGroupName='qual'
+                                        inputGroupPlaceHolder='Diploma in Examples'
                                         inputGroupValue={this.props.data.qual}
                                         handleChange={this.props.handleChange}
                                         required={true}
@@ -44,6 +46,7 @@ export default class InputEducation extends Component {
                             <InputGroup inputGroupLabel='Address'
                                         inputGroupType='text'
                                         inputGroupName='location'
+                                        inputGroupPlaceHolder='City, Country'
                                         inputGroupValue={this.props.data.location}
                                         handleChange={this.props.handleChange}
                                         required={true}

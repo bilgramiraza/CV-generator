@@ -26,6 +26,7 @@ export default class InputExperience extends Component {
                             <InputGroup inputGroupLabel='Company Name'
                                         inputGroupType='text'
                                         inputGroupName='companyName'
+                                        inputGroupPlaceHolder='Example Industries'
                                         inputGroupValue={this.props.data.companyName}
                                         handleChange={this.props.handleChange}
                                         required={true}
@@ -35,6 +36,7 @@ export default class InputExperience extends Component {
                             <InputGroup inputGroupLabel='Title'
                                         inputGroupType='text'
                                         inputGroupName='role'
+                                        inputGroupPlaceHolder='Assistant to the General Manager'
                                         inputGroupValue={this.props.data.role}
                                         handleChange={this.props.handleChange}
                                         required={true}
@@ -44,6 +46,7 @@ export default class InputExperience extends Component {
                             <InputGroup inputGroupLabel='Details'
                                         inputGroupType='textarea'
                                         inputGroupName='details'
+                                        inputGroupPlaceHolder='Enter Details here...'
                                         inputGroupValue={this.props.data.details}
                                         handleChange={this.props.handleChange}
                                         required={true}

@@ -17,6 +17,7 @@ export default class InputPersonal extends Component {
                         <InputGroup inputGroupLabel='First Name'
                                     inputGroupType='text'
                                     inputGroupName='firstName'
+                                    inputGroupPlaceHolder='John'
                                     inputGroupValue={this.props.data.firstName}
                                     handleChange={this.props.handleChange}
                                     required={true}
@@ -24,6 +25,7 @@ export default class InputPersonal extends Component {
                         <InputGroup inputGroupLabel='Last Name'
                                     inputGroupType='text'
                                     inputGroupName='lastName'
+                                    inputGroupPlaceHolder='Smith'
                                     inputGroupValue={this.props.data.lastName}
                                     handleChange={this.props.handleChange}
                                     required={true}
@@ -33,6 +35,7 @@ export default class InputPersonal extends Component {
                         <InputGroup inputGroupLabel='Email'
                                     inputGroupType='email'
                                     inputGroupName='email'
+                                    inputGroupPlaceHolder='name@example.com'
                                     inputGroupValue={this.props.data.email}
                                     handleChange={this.props.handleChange}
                                     required={true}
@@ -42,6 +45,7 @@ export default class InputPersonal extends Component {
                         <InputGroup inputGroupLabel='Address'
                                     inputGroupType='text'
                                     inputGroupName='location'
+                                    inputGroupPlaceHolder='City, Country'
                                     inputGroupValue={this.props.data.location}
                                     handleChange={this.props.handleChange}
                                     required={true}
@@ -52,15 +56,17 @@ export default class InputPersonal extends Component {
                                     inputGroupType='tel'
                                     inputGroupName='mobileNo'
                                     pattern='[0-9]+'
+                                    inputGroupPlaceHolder='1234567890'
                                     inputGroupValue={this.props.data.mobileNo}
                                     handleChange={this.props.handleChange}
                                     required={true}
                         />
                     </div>
                     <div className="input-group">
-                        <InputGroup inputGroupLabel='Site'
+                        <InputGroup inputGroupLabel='Website'
                                     inputGroupType='text'
                                     inputGroupName='site'
+                                    inputGroupPlaceHolder='example.com'
                                     inputGroupValue={this.props.data.site}
                                     handleChange={this.props.handleChange}
                                     required={false}

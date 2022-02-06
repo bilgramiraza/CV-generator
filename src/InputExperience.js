@@ -3,17 +3,24 @@ import InputCarouselSelector from './components/InputCarouselSelector';
 import InputGroup from './components/InputGroup';
 
 export default class InputExperience extends Component {
-    handleSubmit=(e)=>{
-        this.props.updateStatus(true);
+    handleSubmit=()=>{
+        const form = document.querySelector('.experience.needs-validation');
+        form.classList.add('was-validated');
+        if(form.checkValidity())   
+            this.props.updateStatus(true);
     }
     handleAdd=(e)=>{
-        e.preventDefault();
-        this.props.addExperience();
+        e.preventDefault();        
+        const form = document.querySelector('.experience.needs-validation');
+        if(form.checkValidity())   
+            this.props.addExperience();
+        else
+            form.classList.add('was-validated');
     }
     render() {
         return (
             <div>   
-                <form onSubmit={this.handleAdd}>
+                <form className='experience needs-validation' noValidate='novalidate'>
                     <fieldset disabled={this.props.disable?'disabled':''}>
                         <div className="input-group">
                             <InputGroup inputGroupLabel='Company Name'

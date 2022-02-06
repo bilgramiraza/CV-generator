@@ -4,11 +4,14 @@ import InputGroup from './components/InputGroup'
 export default class InputPersonal extends Component {
     handleSubmit=(e)=>{
         e.preventDefault();
-        this.props.updateStatus(true);
+        const form = document.querySelector('.personal.needs-validation');
+        form.classList.add('was-validated');
+        if(form.checkValidity())   
+            this.props.updateStatus(true);
     }
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form className='personal needs-validation' noValidate='novalidate'>
                 <fieldset disabled={this.props.disable?'disabled':''}>
                     <div className="input-group">
                         <InputGroup inputGroupLabel='First Name'
@@ -64,7 +67,7 @@ export default class InputPersonal extends Component {
                         />
                     </div>
                 </fieldset>
-                <button>Submit Personal</button>
+                <button onClick={this.handleSubmit}>Submit Personal</button>
             </form>
         )
     }

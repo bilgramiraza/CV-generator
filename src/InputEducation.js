@@ -3,17 +3,24 @@ import InputCarouselSelector from './components/InputCarouselSelector';
 import InputGroup from './components/InputGroup';
 
 export default class InputEducation extends Component {
-    handleSubmit=(e)=>{
-        this.props.updateStatus(true);
+    handleSubmit=()=>{
+        const form = document.querySelector('.education.needs-validation');
+        form.classList.add('was-validated');
+        if(form.checkValidity())   
+            this.props.updateStatus(true);
     }
     handleAdd=(e)=>{
         e.preventDefault();
-        this.props.addEducation();
+        const form = document.querySelector('.education.needs-validation');
+        if(form.checkValidity())   
+            this.props.addEducation();
+        else
+            form.classList.add('was-validated');
     }
     render() {
         return (
             <div>
-                <form onSubmit={this.handleAdd}>
+                <form className='education needs-validation' noValidate='novalidate'>
                     <fieldset disabled={this.props.disable?'disabled':''}>
                         <div className="input-group">
                             <InputGroup inputGroupLabel='Institute Name'
@@ -60,7 +67,7 @@ export default class InputEducation extends Component {
                                         required={true}
                                         />
                         </div>
-                        <button>Add Education</button>
+                        <button onClick={this.handleAdd}>Add Education</button>
                         <button type='button' onClick={this.props.removeEducation}>Remove Education</button>
                     </fieldset>
                 </form>

@@ -24,13 +24,13 @@ export default class InputCarouselSelector extends Component {
                                         <button className='page-link'
                                                 onClick={this.handleChange}
                                                 value={i}>
-                                            {i}
+                                            {i+1}
                                         </button>
                                     </li>);
                                 });
     return (
         <nav>
-        <ul className="pagination pagination-sm justify-content-center">
+        <ul className="my-auto pagination justify-content-center">
             <li className="page-item">
                 <button className="page-link" onClick={this.decrementTracker}>Previous</button>
             </li>

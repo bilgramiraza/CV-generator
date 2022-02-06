@@ -3,11 +3,14 @@ import InputCarouselSelector from './components/InputCarouselSelector';
 import InputGroup from './components/InputGroup';
 
 export default class InputExperience extends Component {
-    handleSubmit=()=>{
+    handleSubmit=(event)=>{
         const form = document.querySelector('.experience.needs-validation');
         form.classList.add('was-validated');
-        if(form.checkValidity())   
+        if(form.checkValidity()){   
             this.props.updateStatus(true);
+            event.target.classList.remove('btn-primary')
+            event.target.classList.add('btn-success');
+        }
     }
     handleAdd=(e)=>{
         e.preventDefault();        
@@ -70,16 +73,31 @@ export default class InputExperience extends Component {
                                         required={true}
                                         />
                         </div>
-                        <button>Add Experience</button>
-                        <button type='button' onClick={this.props.removeExperience}>Remove Experience</button>
+                        <div className="my-2 d-flex justify-content-between">
+                            <button className='my-auto btn btn-success' 
+                                    onClick={this.handleAdd}>
+                                Add Experience
+                            </button>
+                            <InputCarouselSelector currentIndex={this.props.currentItemIndex}
+                                                totalItems={this.props.totalItems}
+                                                category='experience'
+                                                handleTracker={this.props.handleTracker}
+                            />
+                            <button type='button'
+                                    className='my-auto btn btn-danger' 
+                                    onClick={this.props.removeExperience}>
+                                Remove Experience
+                            </button>
+                        </div>
                     </fieldset>
                 </form>
-                <InputCarouselSelector currentIndex={this.props.currentItemIndex}
-                                       totalItems={this.props.totalItems}
-                                       category='experience'
-                                       handleTracker={this.props.handleTracker}
-                />
-                <button type='button' onClick={this.handleSubmit}>Submit Experience</button>
+                <div className="my-2 d-flex justify-content-center">
+                    <button type='button' 
+                            className='btn btn-primary' 
+                            onClick={this.handleSubmit}>
+                        Submit Experience
+                    </button>
+                </div>
             </div>
         );
     }

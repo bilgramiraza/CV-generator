@@ -2,12 +2,15 @@ import React, { Component } from 'react'
 import InputGroup from './components/InputGroup'
 
 export default class InputPersonal extends Component {
-    handleSubmit=(e)=>{
-        e.preventDefault();
+    handleSubmit=(event)=>{
+        event.preventDefault();
         const form = document.querySelector('.personal.needs-validation');
         form.classList.add('was-validated');
-        if(form.checkValidity())   
+        if(form.checkValidity()){
             this.props.updateStatus(true);
+            event.target.classList.remove('btn-primary')
+            event.target.classList.add('btn-success');
+        }
     }
     render() {
         return (
@@ -73,7 +76,12 @@ export default class InputPersonal extends Component {
                         />
                     </div>
                 </fieldset>
-                <button onClick={this.handleSubmit}>Submit Personal</button>
+                <div className="my-2 d-flex justify-content-center">
+                    <button className='btn btn-primary'
+                            onClick={this.handleSubmit}>
+                        Submit Personal
+                    </button>
+                </div>
             </form>
         )
     }

@@ -78,7 +78,6 @@ export default class InputEducation extends Component {
                                        totalItems={this.props.totalItems}
                                        category='education'
                                        handleTracker={this.props.handleTracker}
-                                       disable={this.props.disable}
                 />
                 <button type='button' onClick={this.handleSubmit}>Submit Education</button>
             </div>

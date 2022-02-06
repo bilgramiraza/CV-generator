@@ -78,7 +78,6 @@ export default class InputExperience extends Component {
                                        totalItems={this.props.totalItems}
                                        category='experience'
                                        handleTracker={this.props.handleTracker}
-                                       disable={this.props.disable}
                 />
                 <button type='button' onClick={this.handleSubmit}>Submit Experience</button>
             </div>

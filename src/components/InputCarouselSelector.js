@@ -18,26 +18,28 @@ export default class InputCarouselSelector extends Component {
     }
   render() {
       const inputIndicators = [...Array(this.props.totalItems)].map((div,i)=>{
-                                
-                                return (<input type={'radio'} 
-                                    name={this.props.category}
-                                    value={i}
-                                    checked={this.props.currentIndex===i}
-                                    onChange={this.handleChange}
-                                    key={i}
-                                />);});
+                                return (
+                                    <li className={`page-item ${i===this.props.currentIndex?'active':''}`}
+                                        key={i}>
+                                        <button className='page-link'
+                                                onClick={this.handleChange}
+                                                value={i}>
+                                            {i}
+                                        </button>
+                                    </li>);
+                                });
     return (
-        <form className='text-center'>
-            <fieldset disabled={this.props.disable?'disabled':''}>
-                <button onClick={this.decrementTracker}>
-                    Previous
-                </button>
-                {inputIndicators}
-                <button onClick={this.incrementTracker}>
-                    Next
-                </button>
-            </fieldset>
-        </form>
+        <nav>
+        <ul className="pagination pagination-sm justify-content-center">
+            <li className="page-item">
+                <button className="page-link" onClick={this.decrementTracker}>Previous</button>
+            </li>
+            {inputIndicators}
+            <li className="page-item">
+                <button className="page-link" onClick={this.incrementTracker}>Next</button>
+            </li>
+        </ul>
+    </nav>
     );
   }
 }

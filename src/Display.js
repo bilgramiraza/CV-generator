@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import formatData from './components/formatData';
+
 
 export default class Display extends Component {
     render() {
-        const {personal:personalInfo, education:educationInfo, experience:experienceInfo}=this.props.data;
+        const {personalInfo, educationInfo, experienceInfo}=formatData(this.props.data);
         const educationDivs=educationInfo.history.map((item,index)=>(            
             <div key={index}>
                 <div className='my-auto row'>

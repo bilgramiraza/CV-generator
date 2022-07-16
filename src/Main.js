@@ -193,13 +193,13 @@ export default class Main extends Component {
       <main className='container'>
         {
           this.state.display ?
-            <Display data={this.state} />
-            : <InputForm getData={this.getData.bind(this)}
-              handleTracker={this.handleTracker.bind(this)}
-              addHistory={this.addHistory.bind(this)}
-              removeHistory={this.removeHistory.bind(this)}
-              data={this.state}
-              updateStatus={this.updateStatus.bind(this)} />
+          <Display data={this.state} /> : 
+          <InputForm getData={this.getData.bind(this)}
+            handleTracker={this.handleTracker.bind(this)}
+            addHistory={this.addHistory.bind(this)}
+            removeHistory={this.removeHistory.bind(this)}
+            data={this.state}
+            updateStatus={this.updateStatus.bind(this)} />
         }
         <div className='text-center'>
           <button className='btn btn-primary'
